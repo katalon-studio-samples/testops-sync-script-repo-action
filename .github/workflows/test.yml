@@ -6,7 +6,6 @@ jobs:
     name: Generation repository json
     steps:
       - name: Scan repository
-        working-directory: web-service-tests
         id: scan
         uses: ./
       
