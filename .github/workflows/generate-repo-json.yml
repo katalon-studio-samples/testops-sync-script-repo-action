@@ -1,7 +1,12 @@
-on: [push]
-
+name: Generate repository.json
+on:
+  workflow_call:
+    inputs:
+      repository-name:
+        required: true
+        type: string
 jobs:
-  hello_world_job:
+  generate-a-repository-json:
     runs-on: ubuntu-latest
     name: Generate repository json
     steps:
@@ -11,18 +16,18 @@ jobs:
       - name: Checkout web-service-tests
         uses: actions/checkout@v3
         with: 
-          repository: katalon-studio-samples/web-service-tests
+          repository: ${{ inputs.config-path }}
           ref: master
-          path: web-service-tests
+          path: target-repo
 
       - name: Scan repository
         id: scan
         uses: ./
         with: 
-          path: web-service-tests
+          path: target-repo
       
       - name: Upload repository.json artifact
         uses: actions/upload-artifact@v3
         with:
-          name: repository
+          name: repository-${{ inputs.config-path }}
           path: repository.json
