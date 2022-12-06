@@ -11,7 +11,7 @@ jobs:
       - name: Checkout web-service-tests
         uses: actions/checkout@v3
         with: 
-          name: katalon-studio-samples/web-service-tests
+          repository: katalon-studio-samples/web-service-tests
           ref: master
           path: web-service-tests
 
