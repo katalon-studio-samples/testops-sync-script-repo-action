@@ -8,9 +8,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install package
-        run: npm ci
-
       - name: Scan repository
         id: scan
         uses: ./
@@ -20,5 +17,5 @@ jobs:
       - name: Upload repository.json artifact
         uses: actions/upload-artifact@v3
         with:
-          name: repository.json
+          name: repository
           path: repository.json
