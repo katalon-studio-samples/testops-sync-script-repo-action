@@ -8,7 +8,7 @@ jobs:
       - name: Scan repository
         working-directory: web-service-tests
         id: scan
-        uses: ${{ github.workspace }}
+        uses: ./
       
       # Use the output from the `hello` step
       - name: Get the output 
