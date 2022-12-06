@@ -5,7 +5,7 @@ const glob = require('glob')
 const path = require('path')
 const { XMLParser } = require('fast-xml-parser')
 
-const ROOT_FOLDER = process.env.GITHUB_WORKSPACE;
+const ROOT_FOLDER = core.getInput('path');
 
 // const TEST_SUITE_SCRIPT_REGREX = "Test Suites/!(TestOps)**/*.groovy";
 const TEST_SUITE_PATTERN = "Test Suites/**/*.ts";

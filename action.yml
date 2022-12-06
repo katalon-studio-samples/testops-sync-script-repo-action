@@ -1,5 +1,10 @@
 name: 'TestOps sync script repository'
 description: 'Auto-sync changes from script repo to TestOps'
+inputs:
+  path:  
+    description: 'Path to Katalon Studio repository'
+    required: false
+    default: './'
 outputs:
   repository: # id of output
     description: 'The JSON contains the repository Test Suite Collections, Test Suites, Test Cases and Profiles'
