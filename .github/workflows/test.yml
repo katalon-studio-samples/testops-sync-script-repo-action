@@ -12,7 +12,6 @@ jobs:
         uses: actions/checkout@v3
         with: 
           name: katalon-studio-samples/web-service-tests
-          ref: refs/heads/master
           path: web-service-tests
 
       - name: Scan repository
