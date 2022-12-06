@@ -67,7 +67,9 @@ const main = async () => {
     testSuiteCollections, 
     testCases
   }
-  core.setOutput('repository', result)
+  core.setOutput('repository', result);
+
+  await fs.writeFile('repository.json', JSON.stringify(result));
   //TODO: get signed URL from TestOps and upload result to S3
 }
 
