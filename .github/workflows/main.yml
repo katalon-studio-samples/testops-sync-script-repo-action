@@ -4,10 +4,10 @@ jobs:
   generate-web-services-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
-      repository-name: katalon-studio-samples/web-service-tests
+      repository-name: web-service-tests
   
   generate-health-care-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
-      repository-name: katalon-studio-samples/healthcare-tests
+      repository-name: healthcare-tests
 
