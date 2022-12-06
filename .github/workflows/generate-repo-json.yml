@@ -16,7 +16,7 @@ jobs:
       - name: Checkout web-service-tests
         uses: actions/checkout@v3
         with: 
-          repository: ${{ inputs.config-path }}
+          repository: ${{ inputs.repository-name }}
           ref: master
           path: target-repo
 
@@ -29,5 +29,5 @@ jobs:
       - name: Upload repository.json artifact
         uses: actions/upload-artifact@v3
         with:
-          name: repository-${{ inputs.config-path }}
+          name: repository-${{ inputs.repository-name }}
           path: repository.json
