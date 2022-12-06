@@ -5,8 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Generate repository json
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v3
+
+      - name: Checkout web-service-tests
+        uses: actions/checkout@v3
+        with: 
+          name: katalon-studio-samples/web-service-tests
+          ref: refs/heads/master
+          path: web-service-tests
 
       - name: Scan repository
         id: scan
