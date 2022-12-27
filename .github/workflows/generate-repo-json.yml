@@ -25,9 +25,6 @@ jobs:
         uses: ./
         with: 
           path: target-repo
-      
-      - name: Upload repository.json artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: repository-${{ inputs.repository-name }}
-          path: repository.json
+          username: ${{ inputs.username }}
+          password: ${{ inputs.password }}
+          token: ${{ inputs.token }}
