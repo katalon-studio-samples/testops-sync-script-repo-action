@@ -1,9 +1,10 @@
-const core = require('@actions/core');
-const github = require('@actions/github')
-const { promises: fs } = require('fs');
-const glob = require('glob')
-const path = require('path')
-const { XMLParser } = require('fast-xml-parser')
+import core from '@actions/core';
+import github from '@actions/github';
+import { fs } from 'fs';
+import glob from 'glob';
+import path from 'path';
+import { XMLParser } from 'fast-xml-parser';
+import Services from './utils/Services.jsx';
 
 const ROOT_FOLDER = core.getInput('path');
 
@@ -69,8 +70,11 @@ const main = async () => {
   }
   core.setOutput('repository', result);
 
-  await fs.writeFile('repository.json', JSON.stringify(result));
-  //TODO: get signed URL from TestOps and upload result to S3
+  const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
+
+  await Services.getS3PresignedUrl(result.repositoryUrl).then((presignedUrl) => {
+    Services.putS3PresignedUrl(presignedUrl, jsonFile);
+  })
 }
 
 main().catch(err => core.setFailed(err.message))

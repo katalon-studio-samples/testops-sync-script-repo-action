@@ -5,6 +5,10 @@ inputs:
     description: 'Path to Katalon Studio repository'
     required: false
     default: './'
+  credentials:
+    username: ${{secrets.username}}
+    password: ${{secrets.password}}
+    token: ${{secrets.token}}
 outputs:
   repository: # id of output
     description: 'The JSON contains the repository Test Suite Collections, Test Suites, Test Cases and Profiles'

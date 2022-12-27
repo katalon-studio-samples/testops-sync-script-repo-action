@@ -129,3 +129,6 @@ out
 .pnp.*
 
 repository.json
+
+# idea
+/.idea/
