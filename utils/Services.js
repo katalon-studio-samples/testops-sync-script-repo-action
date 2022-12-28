@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Apis from './Apis.jsx';
+import Apis from './Apis.js';
 import core from '@actions/core';
 
 const testOpsBaseUrl = core.getInput('testops-base-url');

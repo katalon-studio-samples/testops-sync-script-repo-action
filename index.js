@@ -1,10 +1,10 @@
 import core from '@actions/core';
 import github from '@actions/github';
-import { fs } from 'fs';
+import fs from 'fs';
 import glob from 'glob';
 import path from 'path';
 import { XMLParser } from 'fast-xml-parser';
-import Services from './utils/Services.jsx';
+import Services from './utils/Services.js';
 
 const ROOT_FOLDER = core.getInput('path');
 
