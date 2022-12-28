@@ -25,10 +25,12 @@ const Services = {
         const api = testOpsBaseUrl + Apis.s3PresignedUrl;
         core.info(`Found auth: ${JSON.stringify(auth)}.`);
 
-        return axios.get(api,
-            params,
-            auth
-        );
+        return axios.get(api, params, {
+            auth: {
+              username: 'hiep.vu@katalon.com',
+              password: 'Ntchang121099.'
+            }
+          });
     },
 
     putS3PresignedUrl: (presignedS3Url, jsonFile) => {
