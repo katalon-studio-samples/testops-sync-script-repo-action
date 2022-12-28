@@ -70,6 +70,8 @@ const main = async () => {
   }
   core.setOutput('repository', result);
 
+  core.info(`Hello world!`);
+
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
   core.info(`Found jsonFile: ${jsonFile}.`);
 
