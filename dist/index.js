@@ -18214,7 +18214,7 @@ const Services = {
         }
 
         const api = testOpsBaseUrl + Apis.s3PresignedUrl;
-        core.info(`Found auth: ${auth}.`);
+        core.info(`Found auth: ${JSON.stringify(auth)}.`);
 
         return axios.get(api,
             params,
