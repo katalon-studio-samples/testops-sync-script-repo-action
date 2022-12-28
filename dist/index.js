@@ -22370,14 +22370,12 @@ const main = async () => {
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result))
   .then(() => fs.readFile('repository.json', 'utf-8'));
-  core.info(`Found jsonFile ${jsonFile}`);
 
   const GITHUB_URL = core.getInput('github-url');
 
   await Services.getS3PresignedUrl(GITHUB_URL).then((response) => {
     const presignedUrl = response.data;
-    const res = Services.putS3PresignedUrl(presignedUrl, jsonFile);
-    core.info(`Found putS3PresignedUrl ${res}.`);
+    Services.putS3PresignedUrl(presignedUrl, jsonFile);
   })
 }
 
