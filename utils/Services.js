@@ -16,16 +16,18 @@ const Services = {
         };
 
         const auth = {
-            username,
-            password
-        };
+            auth: {
+              username,
+              password
+            }
+        }
 
         const api = testOpsBaseUrl + Apis.s3PresignedUrl;
         core.info(`Found auth: ${auth}.`);
 
         return axios.get(api,
             params,
-            { auth }
+            auth
         );
     },
 
