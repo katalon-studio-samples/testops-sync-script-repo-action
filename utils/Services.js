@@ -10,18 +10,15 @@ const token = core.getInput('token');
 const Services = {
 
     getS3PresignedUrl: (url) => {
-        const api = testOpsBaseUrl + Apis.s3PresignedUrl;
-        core.info(`Found api: ${api}.`);
-
-        return axios.get(api, {
+        return axios.get(testOpsBaseUrl + Apis.s3PresignedUrl, {
             params: {
-                token: 'toidihoc123',
+                token: token,
                 url: url
             },
             withCredentials: true,
             auth: {
-                username: 'hiep.vu@katalon.com',
-                password: 'Ntchang121099.'
+                username: username,
+                password: password
             }
         });
     },
