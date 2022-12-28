@@ -37,6 +37,7 @@ jobs:
         uses: ./
         with: 
           path: target-repo
+          testops-base-url: ${{ inputs.testops-base-url }}
           username: ${{ inputs.username }}
           password: ${{ inputs.password }}
           token: ${{ inputs.token }}
