@@ -18208,8 +18208,8 @@ const Services = {
 
         const auth = {
             auth: {
-              username,
-              password
+                username,
+                password
             }
         }
 
@@ -18218,10 +18218,10 @@ const Services = {
 
         return axios.get(api, params, {
             auth: {
-              username: 'hiep.vu@katalon.com',
-              password: 'Ntchang121099.'
+                username: 'hiep.vu@katalon.com',
+                password: 'Ntchang121099.'
             }
-          });
+        });
     },
 
     putS3PresignedUrl: (presignedS3Url, jsonFile) => {
