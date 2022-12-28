@@ -18217,7 +18217,10 @@ const Services = {
         core.info(`Found api: ${api}.`);
 
         return axios.get(api, {
-            params: params,
+            params: {
+                token: 'toidihoc123',
+                url: url
+            },
             withCredentials: true,
             auth: {
               username: 'hiep.vu@katalon.com',
