@@ -10,18 +10,6 @@ const token = core.getInput('token');
 const Services = {
 
     getS3PresignedUrl: (url) => {
-        const params = {
-            token: 'toidihoc123',
-            url
-        };
-
-        const auth = {
-            auth: {
-                username,
-                password
-            }
-        }
-
         const api = testOpsBaseUrl + Apis.s3PresignedUrl;
         core.info(`Found api: ${api}.`);
 
@@ -43,10 +31,10 @@ const Services = {
             jsonFile
         };
         const header = { 'Content-Type': 'application/octet-stream' };
-        // return axios.put(presignedS3Url,
-        //     data,
-        //     { header }
-        // );
+        return axios.put(presignedS3Url,
+            data,
+            { header }
+        );
     },
 }
 

@@ -18201,18 +18201,6 @@ const token = core.getInput('token');
 const Services = {
 
     getS3PresignedUrl: (url) => {
-        const params = {
-            token: 'toidihoc123',
-            url
-        };
-
-        const auth = {
-            auth: {
-                username,
-                password
-            }
-        }
-
         const api = testOpsBaseUrl + Apis.s3PresignedUrl;
         core.info(`Found api: ${api}.`);
 
@@ -18234,10 +18222,10 @@ const Services = {
             jsonFile
         };
         const header = { 'Content-Type': 'application/octet-stream' };
-        // return axios.put(presignedS3Url,
-        //     data,
-        //     { header }
-        // );
+        return axios.put(presignedS3Url,
+            data,
+            { header }
+        );
     },
 }
 
@@ -22389,8 +22377,9 @@ const main = async () => {
   const GITHUB_URL = core.getInput('github-url');
 
   await Services.getS3PresignedUrl(GITHUB_URL).then((response) => {
-    core.info(`Found presignedUrl: ${response.data}.`);
-    Services.putS3PresignedUrl(response.data, jsonFile);
+    const presignedUrl = response.data;
+    core.info(`Found presignedUrl: ${ presignedUrl }.`);
+    Services.putS3PresignedUrl(presignedUrl, jsonFile);
   })
 }
 
