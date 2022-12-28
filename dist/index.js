@@ -22386,7 +22386,7 @@ const main = async () => {
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
 
-  const GITHUB_URL = core.getInput('github_url');
+  const GITHUB_URL = core.getInput('github-url');
   core.info(`Found github ${GITHUB_URL}`);
 
   await Services.getS3PresignedUrl(GITHUB_URL).then((presignedUrl) => {
