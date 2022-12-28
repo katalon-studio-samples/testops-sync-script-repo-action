@@ -18194,7 +18194,6 @@ const Apis = __nccwpck_require__(7808);
 const core = __nccwpck_require__(312);
 
 const testOpsBaseUrl = core.getInput('testops-base-url');
-core.info(`Found testOpsBaseUrl: ${testOpsBaseUrl}.`);
 
 const username = core.getInput('username');
 const password = core.getInput('password');
@@ -18213,10 +18212,13 @@ const Services = {
             password
         };
 
-        // return axios.get(testOpsBaseUrl + Apis.s3PresignedUrl,
-        //     params,
-        //     { auth }
-        // );
+        const api = testOpsBaseUrl + Apis.s3PresignedUrl;
+        core.info(`Found testOpsBaseUrl: ${testOpsBaseUrl}.`);
+
+        return axios.get(api,
+            params,
+            { auth }
+        );
     },
 
     putS3PresignedUrl: (presignedS3Url, jsonFile) => {

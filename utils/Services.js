@@ -3,7 +3,6 @@ const Apis = require('./Apis.js');
 const core = require('@actions/core');
 
 const testOpsBaseUrl = core.getInput('testops-base-url');
-core.info(`Found testOpsBaseUrl: ${testOpsBaseUrl}.`);
 
 const username = core.getInput('username');
 const password = core.getInput('password');
@@ -22,10 +21,13 @@ const Services = {
             password
         };
 
-        // return axios.get(testOpsBaseUrl + Apis.s3PresignedUrl,
-        //     params,
-        //     { auth }
-        // );
+        const api = testOpsBaseUrl + Apis.s3PresignedUrl;
+        core.info(`Found testOpsBaseUrl: ${testOpsBaseUrl}.`);
+
+        return axios.get(api,
+            params,
+            { auth }
+        );
     },
 
     putS3PresignedUrl: (presignedS3Url, jsonFile) => {
