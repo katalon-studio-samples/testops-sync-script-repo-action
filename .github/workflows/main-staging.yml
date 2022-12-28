@@ -15,7 +15,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
-      testops-base-url: https://testops.staging.katalon.com
+      testops-base-url: https://localhost:8443
       username: hiep.vu@katalon.com
       password: Ntchang121099.
       token: toidihoc123
@@ -24,7 +24,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: healthcare-tests
-      testops-base-url: https://testops.staging.katalon.com
+      testops-base-url: https://localhost:8443
       username: hiep.vu@katalon.com
       password: Ntchang121099.
       token: toidihoc123
