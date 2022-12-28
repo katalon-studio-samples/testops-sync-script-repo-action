@@ -26,7 +26,7 @@ const Services = {
         core.info(`Found api: ${api}.`);
 
         return axios.get(api, {
-            params,
+            params: params,
             withCredentials: true,
             auth: {
               username: 'hiep.vu@katalon.com',
