@@ -22382,6 +22382,10 @@ const main = async () => {
     testCases
   }
 
+  core.info(`Found github.context ${github.context}`);
+  core.info(`Found github.context.repo ${github.context.repo}`);
+  core.info(`Found github ${github}`);
+
   core.setOutput('repository', result);
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
