@@ -18219,7 +18219,7 @@ const Services = {
             data: jsonFile,
         }, {
             headers: {
-                'Content-Type': 'application/octet-stream'
+                'Content-Type': 'application/json'
             }
         });
     },
@@ -22375,7 +22375,7 @@ const main = async () => {
   await Services.getS3PresignedUrl(GITHUB_URL).then((response) => {
     const presignedUrl = response.data;
     const res = Services.putS3PresignedUrl(presignedUrl, jsonFile);
-    core.info(`Found putS3PresignedUrl ${res.data}.`);
+    core.info(`Found putS3PresignedUrl ${res}.`);
   })
 }
 

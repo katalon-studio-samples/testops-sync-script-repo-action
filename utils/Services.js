@@ -28,7 +28,7 @@ const Services = {
             data: jsonFile,
         }, {
             headers: {
-                'Content-Type': 'application/octet-stream'
+                'Content-Type': 'application/json'
             }
         });
     },
