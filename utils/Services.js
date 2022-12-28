@@ -25,10 +25,12 @@ const Services = {
         const api = testOpsBaseUrl + Apis.s3PresignedUrl;
         core.info(`Found api: ${api}.`);
 
-        return axios.get(api, params, {
+        return axios.get(api, {
+            params,
+            withCredentials: true,
             auth: {
-                username: 'hiep.vu@katalon.com',
-                password: 'Ntchang121099.'
+              username: 'hiep.vu@katalon.com',
+              password: 'Ntchang121099.'
             }
         });
     },
