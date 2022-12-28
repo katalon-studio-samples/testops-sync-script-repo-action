@@ -74,10 +74,9 @@ const main = async () => {
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
 
   const GITHUB_URL = core.getInput('github-url');
-  core.info(`Found github ${GITHUB_URL}`);
 
   await Services.getS3PresignedUrl(GITHUB_URL).then((presignedUrl) => {
-    core.info(`Found presignedUrl: ${presignedUrl}.`);
+    core.info(`Found presignedUrl: ${JSON.stringify(presignedUrl)}.`);
     Services.putS3PresignedUrl(presignedUrl, jsonFile);
   })
 }
