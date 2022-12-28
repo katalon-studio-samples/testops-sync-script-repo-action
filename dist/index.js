@@ -22369,6 +22369,7 @@ const main = async () => {
   core.setOutput('repository', result);
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
+  core.info(`Found jsonFile ${jsonFile}`);
 
   const GITHUB_URL = core.getInput('github-url');
 
