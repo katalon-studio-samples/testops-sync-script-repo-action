@@ -18194,6 +18194,8 @@ const Apis = __nccwpck_require__(7808);
 const core = __nccwpck_require__(312);
 
 const testOpsBaseUrl = core.getInput('testops-base-url');
+core.info(`Found testOpsBaseUrl: ${testOpsBaseUrl}.`);
+
 const username = core.getInput('username');
 const password = core.getInput('password');
 const token = core.getInput('token');

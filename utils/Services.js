@@ -3,6 +3,8 @@ const Apis = require('./Apis.js');
 const core = require('@actions/core');
 
 const testOpsBaseUrl = core.getInput('testops-base-url');
+core.info(`Found testOpsBaseUrl: ${testOpsBaseUrl}.`);
+
 const username = core.getInput('username');
 const password = core.getInput('password');
 const token = core.getInput('token');
