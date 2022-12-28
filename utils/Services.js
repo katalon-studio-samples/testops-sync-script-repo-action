@@ -21,9 +21,7 @@ const Services = {
         };
 
         const api = testOpsBaseUrl + Apis.s3PresignedUrl;
-        core.info(`Found testOpsBaseUrl: ${testOpsBaseUrl}.`);
-        core.info(`Found s3PresignedUrl: ${Apis.s3PresignedUrl}.`);
-        core.info(`Found api: ${api}.`);
+        core.info(`Found auth: ${auth}.`);
 
         return axios.get(api,
             params,
