@@ -5,6 +5,18 @@ on:
       repository-name:
         required: true
         type: string
+      testops-base-url:
+        required: true
+        type: string
+      username:
+        required: true
+        type: string
+      password:
+        required: true
+        type: string
+      token:
+        required: true
+        type: string
 jobs:
   generate-a-repository-json:
     runs-on: ubuntu-latest
