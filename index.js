@@ -73,6 +73,9 @@ const main = async () => {
 
   await fs.writeFile('repository.json', JSON.stringify(result));
   const jsonFile = fs.readFile('repository.json', 'utf-8')
+  fs.readFile('repository.json', (err, data) => {
+    core.info(`Found jsonFile ${data}`);
+  })
   core.info(`Found jsonFile ${jsonFile}`);
 
   const GITHUB_URL = core.getInput('github-url');
