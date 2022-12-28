@@ -23,7 +23,7 @@ const scanForEntity = async (pattern, entityType, processEntity) => {
   const entities = [];
   await Promise.all(files.map(async (filePath) => {
     const realPath = path.resolve(ROOT_FOLDER, filePath)
-    const fileContent = await fs.readFile(realPath, { encoding: 'utf8' });
+    const fileContent = await fs.promises.readFile(realPath, { encoding: 'utf8' });
     const entity = parser.parse(fileContent)
     const entityIdString = filePath.replace(/\.[^/.]+$/, "")
     if (!entityType) {
@@ -70,7 +70,7 @@ const main = async () => {
   }
   core.setOutput('repository', result);
 
-  const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
+  const jsonFile = await fs.promises.writeFile('repository.json', JSON.stringify(result));
 
   await Services.getS3PresignedUrl(result.repositoryUrl).then((presignedUrl) => {
     Services.putS3PresignedUrl(presignedUrl, jsonFile);
