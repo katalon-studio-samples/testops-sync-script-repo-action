@@ -10,7 +10,7 @@ const token = core.getInput('token');
 const Services = {
 
     getS3PresignedUrl: (url) => {
-        const data = {
+        const params = {
             token,
             url
         };
@@ -19,8 +19,8 @@ const Services = {
             password
         };
         return axios.get(testOpsBaseUrl + Apis.s3PresignedUrl,
-            data,
-            auth
+            params,
+            { auth }
         );
     },
 
@@ -28,13 +28,10 @@ const Services = {
         const data = {
             jsonFile
         };
-        const header =
-        {
-            headers: { 'Content-Type': 'application/octet-stream' }
-        };
+        const header = { 'Content-Type': 'application/octet-stream' };
         return axios.put(presignedS3Url,
             data,
-            header
+            { header }
         );
     },
 }
