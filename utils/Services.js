@@ -20,21 +20,20 @@ const Services = {
             },
             withCredentials: true,
             auth: {
-              username: 'hiep.vu@katalon.com',
-              password: 'Ntchang121099.'
+                username: 'hiep.vu@katalon.com',
+                password: 'Ntchang121099.'
             }
         });
     },
 
     putS3PresignedUrl: (presignedS3Url, jsonFile) => {
-        const data = {
-            jsonFile
-        };
-        const header = { 'Content-Type': 'application/octet-stream' };
-        return axios.put(presignedS3Url,
-            data,
-            { header }
-        );
+        return axios.put(presignedS3Url, {
+            data: jsonFile,
+        }, {
+            headers: {
+                'Content-Type': 'application/octet-stream'
+            }
+        });
     },
 }
 
