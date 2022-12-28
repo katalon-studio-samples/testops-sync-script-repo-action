@@ -18211,6 +18211,8 @@ const Services = {
             password
         };
 
+        core.info(`Found baseUrl: ${testOpsBaseUrl + Apis.s3PresignedUrl}.`);
+
         return axios.get(testOpsBaseUrl + Apis.s3PresignedUrl,
             params,
             { auth }
@@ -22373,7 +22375,6 @@ const main = async () => {
   core.setOutput('repository', result);
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
-  core.info(`Found repositoryUrl: ${result.repositoryUrl}.`);
 
   await Services.getS3PresignedUrl(result.repositoryUrl).then((presignedUrl) => {
     core.info(`Found presignedUrl: ${presignedUrl}.`);

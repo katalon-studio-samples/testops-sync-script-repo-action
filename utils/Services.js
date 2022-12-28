@@ -20,6 +20,8 @@ const Services = {
             password
         };
 
+        core.info(`Found baseUrl: ${testOpsBaseUrl + Apis.s3PresignedUrl}.`);
+
         return axios.get(testOpsBaseUrl + Apis.s3PresignedUrl,
             params,
             { auth }
