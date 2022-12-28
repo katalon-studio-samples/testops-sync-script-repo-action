@@ -5,26 +5,26 @@ on:
       - TES-1829
 
 env:
-  testops-base-url: https://testops.qa.katalon.com
-  username: ${{ secrets.username }}
-  password: ${{ secrets.password }}
-  token: ${{ secrets.token }}
+  TESTOPS_BASE_URL: https://testops.qa.katalon.com
+  USERNAME: ${{ secrets.username }}
+  PASSWORD: ${{ secrets.password }}
+  TOKEN: ${{ secrets.token }}
 
 jobs:
   generate-web-services-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
-      testops-base-url: ${{ env.testops-base-url }}
-      username: ${{ env.username }}
-      password: ${{ env.password }}
-      token: ${{ env.token }}
+      testops-base-url: ${{ env.TESTOPS_BASE_URL }}
+      username: ${{ env.USERNAME }}
+      password: ${{ env.PASSWORD }}
+      token: ${{ env.TOKEN }}
   
   generate-health-care-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: healthcare-tests
-      testops-base-url: ${{ env.testops-base-url }}
-      username: ${{ env.username }}
-      password: ${{ env.password }}
-      token: ${{ env.token }}
+      testops-base-url: ${{ env.TESTOPS_BASE_URL }}
+      username: ${{ env.USERNAME }}
+      password: ${{ env.PASSWORD }}
+      token: ${{ env.TOKEN }}
