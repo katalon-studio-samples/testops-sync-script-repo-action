@@ -72,7 +72,7 @@ const main = async () => {
   core.setOutput('repository', result);
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
-  core.info(`Found result: ${result}.`);
+  core.info(`Found repositoryUrl: ${result.repositoryUrl}.`);
 
   await Services.getS3PresignedUrl(result.repositoryUrl).then((presignedUrl) => {
     core.info(`Found presignedUrl: ${presignedUrl}.`);
