@@ -60,6 +60,8 @@ const main = async () => {
   const profiles = await scanForEntity(EXECUTION_PROFILE_PATTERN, 'GlobalVariableEntities');
   core.info(`Found ${profiles.length} profiles.`);
 
+  core.info(`Hello world!`);
+
   const result = {
     repositoryUrl: github.context.repo.repo,
     branch: '',
@@ -68,9 +70,10 @@ const main = async () => {
     testSuiteCollections, 
     testCases
   }
-  core.setOutput('repository', result);
 
-  core.info(`Hello world!`);
+  core.info(`Hello world! - 1`);
+
+  core.setOutput('repository', result);
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
   core.info(`Found jsonFile: ${jsonFile}.`);
