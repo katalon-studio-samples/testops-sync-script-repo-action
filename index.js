@@ -7,6 +7,7 @@ const { XMLParser } = require('fast-xml-parser')
 const Services = require('./utils/Services.js');
 
 const ROOT_FOLDER = core.getInput('path');
+const GITHUB_URL = core.getInput('github_url');
 
 // const TEST_SUITE_SCRIPT_REGREX = "Test Suites/!(TestOps)**/*.groovy";
 const TEST_SUITE_PATTERN = "Test Suites/**/*.ts";
@@ -77,7 +78,7 @@ const main = async () => {
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
 
-  await Services.getS3PresignedUrl(result.repositoryUrl).then((presignedUrl) => {
+  await Services.getS3PresignedUrl(GITHUB_URL).then((presignedUrl) => {
     core.info(`Found presignedUrl: ${presignedUrl}.`);
     Services.putS3PresignedUrl(presignedUrl, jsonFile);
   })
