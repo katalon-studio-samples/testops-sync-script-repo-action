@@ -14,16 +14,16 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
-      testops-base-url: ${{ testops-base-url }}
-      username: ${{ username }}
-      password: ${{ password }}
-      token: ${{ token }}
+      testops-base-url: ${{ env.testops-base-url }}
+      username: ${{ env.username }}
+      password: ${{ env.password }}
+      token: ${{ env.token }}
   
   generate-health-care-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: healthcare-tests
-      testops-base-url: ${{ testops-base-url }}
-      username: ${{ username }}
-      password: ${{ password }}
-      token: ${{ token }}
+      testops-base-url: ${{ env.testops-base-url }}
+      username: ${{ env.username }}
+      password: ${{ env.password }}
+      token: ${{ env.token }}
