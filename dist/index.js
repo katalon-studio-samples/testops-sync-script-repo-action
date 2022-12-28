@@ -18194,7 +18194,6 @@ const Apis = __nccwpck_require__(7808);
 const core = __nccwpck_require__(312);
 
 const testOpsBaseUrl = core.getInput('testops-base-url');
-
 const username = core.getInput('username');
 const password = core.getInput('password');
 const token = core.getInput('token');
@@ -18214,6 +18213,8 @@ const Services = {
 
         const api = testOpsBaseUrl + Apis.s3PresignedUrl;
         core.info(`Found testOpsBaseUrl: ${testOpsBaseUrl}.`);
+        core.info(`Found s3PresignedUrl: ${Apis.s3PresignedUrl}.`);
+        core.info(`Found api: ${api}.`);
 
         return axios.get(api,
             params,
