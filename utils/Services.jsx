@@ -2,20 +2,23 @@ import axios from 'axios';
 import Apis from './Apis.jsx';
 import core from '@actions/core';
 
-const CREDENTIALS = core.getInput('credentials');
+const testOpsBaseUrl = core.getInput('testops-base-url');
+const username = core.getInput('username');
+const password = core.getInput('password');
+const token = core.getInput('token');
 
 const Services = {
 
     getS3PresignedUrl: (url) => {
         const data = {
-            token: CREDENTIALS.token,
+            token,
             url
         };
         const auth = {
-            username: CREDENTIALS.username,
-            password: CREDENTIALS.password
+            username,
+            password
         };
-        return axios.get(Apis.s3PresignedUrl,
+        return axios.get(testOpsBaseUrl + Apis.s3PresignedUrl,
             data,
             auth
         );
