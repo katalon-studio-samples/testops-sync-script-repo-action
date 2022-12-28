@@ -18213,10 +18213,10 @@ const Services = {
             password
         };
 
-        return axios.get(testOpsBaseUrl + Apis.s3PresignedUrl,
-            params,
-            { auth }
-        );
+        // return axios.get(testOpsBaseUrl + Apis.s3PresignedUrl,
+        //     params,
+        //     { auth }
+        // );
     },
 
     putS3PresignedUrl: (presignedS3Url, jsonFile) => {
@@ -18224,10 +18224,10 @@ const Services = {
             jsonFile
         };
         const header = { 'Content-Type': 'application/octet-stream' };
-        return axios.put(presignedS3Url,
-            data,
-            { header }
-        );
+        // return axios.put(presignedS3Url,
+        //     data,
+        //     { header }
+        // );
     },
 }
 
