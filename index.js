@@ -70,9 +70,7 @@ const main = async () => {
     testCases
   }
 
-  core.info(`Found github.context ${github.context}`);
-  core.info(`Found github.context.repo ${github.context.repo}`);
-  core.info(`Found github ${github}`);
+  core.info(`Found github ${GITHUB_URL}`);
 
   core.setOutput('repository', result);
 
