@@ -18202,7 +18202,7 @@ const Services = {
 
     getS3PresignedUrl: (url) => {
         const params = {
-            token,
+            token: 'toidihoc123',
             url
         };
 
