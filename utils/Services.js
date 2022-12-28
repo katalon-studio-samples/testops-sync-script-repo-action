@@ -14,13 +14,11 @@ const Services = {
             token,
             url
         };
-        core.info(`Found params: ${params}.`);
 
         const auth = {
             username,
             password
         };
-        core.info(`Found auth: ${auth}.`);
 
         return axios.get(testOpsBaseUrl + Apis.s3PresignedUrl,
             params,
