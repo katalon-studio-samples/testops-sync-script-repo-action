@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - master
+      - TES-1829
 
 env:
   testops-base-url: https://testops.qa.katalon.com
