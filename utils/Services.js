@@ -1,6 +1,6 @@
-import axios from 'axios';
-import Apis from './Apis.js';
-import core from '@actions/core';
+const axios = require('axios');
+const Apis = require('./Apis.js');
+const core = require('@actions/core');
 
 const testOpsBaseUrl = core.getInput('testops-base-url');
 const username = core.getInput('username');
@@ -39,4 +39,6 @@ const Services = {
     },
 }
 
-export default Services;
+module.exports = {
+    Services
+};

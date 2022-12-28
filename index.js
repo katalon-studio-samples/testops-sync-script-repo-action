@@ -1,10 +1,10 @@
-import core from '@actions/core';
-import github from '@actions/github';
-import fs from 'fs';
-import glob from 'glob';
-import path from 'path';
-import { XMLParser } from 'fast-xml-parser';
-import Services from './utils/Services.js';
+const core = require('@actions/core');
+const github = require('@actions/github')
+const { promises: fs } = require('fs');
+const glob = require('glob')
+const path = require('path')
+const { XMLParser } = require('fast-xml-parser')
+const Services = require('./utils/Services.js');
 
 const ROOT_FOLDER = core.getInput('path');
 
@@ -23,7 +23,7 @@ const scanForEntity = async (pattern, entityType, processEntity) => {
   const entities = [];
   await Promise.all(files.map(async (filePath) => {
     const realPath = path.resolve(ROOT_FOLDER, filePath)
-    const fileContent = await fs.promises.readFile(realPath, { encoding: 'utf8' });
+    const fileContent = await fs.readFile(realPath, { encoding: 'utf8' });
     const entity = parser.parse(fileContent)
     const entityIdString = filePath.replace(/\.[^/.]+$/, "")
     if (!entityType) {
@@ -70,7 +70,7 @@ const main = async () => {
   }
   core.setOutput('repository', result);
 
-  const jsonFile = await fs.promises.writeFile('repository.json', JSON.stringify(result));
+  const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result));
 
   await Services.getS3PresignedUrl(result.repositoryUrl).then((presignedUrl) => {
     Services.putS3PresignedUrl(presignedUrl, jsonFile);
