@@ -25,4 +25,4 @@ outputs:
     description: 'The JSON contains the repository Test Suite Collections, Test Suites, Test Cases and Profiles'
 runs:
   using: 'node16'
-  main: 'dist/index.js'
+  main: 'index.js'

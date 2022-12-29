@@ -1,4 +1,8 @@
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - TES-1829
 
 jobs:
   sync-sample-staging:
