@@ -20,14 +20,14 @@ jobs:
           echo "USERNAME: $USERNAME"
           echo "PASSWORD: $PASSWORD"
           echo "TOKEN: $TOKEN"
-  # generate-web-services-repo:
-  #   uses: ./.github/workflows/generate-repo-json.yml
-  #   with:
-  #     repository-name: web-service-tests
-  #     testops-base-url: ${{github.env.TESTOPS_BASE_URL}}
-  #     username: ${{github.env.USERNAME}}
-  #     password: ${{github.env.PASSWORD}}
-  #     token: ${{github.env.TOKEN}}
+  generate-web-services-repo:
+    uses: ./.github/workflows/generate-repo-json.yml
+    with:
+      repository-name: web-service-tests
+      testops-base-url: $TESTOPS_BASE_URL
+      username: $USERNAME
+      password: $PASSWORD
+      token: $TOKEN
   
   # generate-health-care-repo:
   #   uses: ./.github/workflows/generate-repo-json.yml

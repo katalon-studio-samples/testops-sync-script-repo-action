@@ -32,6 +32,9 @@ jobs:
           repository: katalon-studio-samples/${{ inputs.repository-name }}
           ref: master
           path: target-repo
+      - name: Test
+        run: |
+          echo "Base url: ${{ inputs.testops-base-url }}"
 
       - name: Scan repository
         id: scan
