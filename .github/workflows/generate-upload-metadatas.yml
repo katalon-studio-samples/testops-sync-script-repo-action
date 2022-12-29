@@ -19,10 +19,10 @@ jobs:
     with:
       repository-name: web-service-tests
       testops-base-url: ${{ inputs.testops-base-url }}
-    secrets:
-      username: ${{ secrets.username }}
-      password: ${{ secrets.password }}
-      token: ${{ secrets.token }}
+    secrets: inherit
+      # username: ${{ secrets.username }}
+      # password: ${{ secrets.password }}
+      # token: ${{ secrets.token }}
   
   # generate-calculator-bdd-tests-repo:
   #   uses: ./.github/workflows/generate-repo-metadata.yml

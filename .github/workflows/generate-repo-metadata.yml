@@ -24,13 +24,6 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v3
 
-      - name: Test
-        env:
-          AAA: ${{ inputs.testops-base-url }}
-        run: |
-          echo $AAA
-          echo ${{ secrets.username }}
-
       - name: Checkout web-service-tests
         uses: actions/checkout@v3
         with: 
