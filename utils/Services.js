@@ -25,7 +25,7 @@ const Services = {
 
     putS3PresignedUrl: (presignedS3Url, jsonFile) => {
         return axios.put(presignedS3Url, {
-            data: jsonFile,
+            file: jsonFile,
         }, {
             headers: {
                 'Content-Type': 'application/json'
