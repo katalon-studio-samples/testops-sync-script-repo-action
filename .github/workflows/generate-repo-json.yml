@@ -40,9 +40,9 @@ jobs:
       - name: Test
         run: |
           echo "Base url: ${{ inputs.testops-base-url }}"
-          echo "Username: $USERNAME"
-          echo "Password: $PASSWORD"
-          echo "Token: $TOKEN"
+          echo "Username: ${{ env.USERNAME }}"
+          echo "Password: ${{ env.PASSWORD }}"
+          echo "Token: ${{ env.TOKEN }}"
 
       # - name: Scan repository
       #   id: scan
