@@ -1,7 +1,4 @@
-on:
-  push:
-    branches:
-      - release
+on: [repository_dispatch]
 
 jobs:
   generate-web-services-repo:
@@ -14,10 +11,60 @@ jobs:
       password: ${{ secrets.PASSWORD }}
       token: ${{ secrets.TOKEN }}
   
+  generate-calculator-bdd-tests-repo:
+    uses: ./.github/workflows/generate-repo-json.yml
+    with:
+      repository-name: web-service-tests
+      testops-base-url: https://testops.katalon.io
+    secrets:
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
+      token: ${{ secrets.TOKEN }}
+
+  generate-shopping-cart-tests-repo:
+    uses: ./.github/workflows/generate-repo-json.yml
+    with:
+      repository-name: shopping-cart-tests
+      testops-base-url: https://testops.katalon.io
+    secrets:
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
+      token: ${{ secrets.TOKEN }}
+
   generate-health-care-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: healthcare-tests
+      testops-base-url: https://testops.katalon.io
+    secrets:
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
+      token: ${{ secrets.TOKEN }}
+  
+  generate-android-mobile-tests-repo:
+    uses: ./.github/workflows/generate-repo-json.yml
+    with:
+      repository-name: android-mobile-tests
+      testops-base-url: https://testops.katalon.io
+    secrets:
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
+      token: ${{ secrets.TOKEN }}
+
+  generate-ios-mobile-tests-repo:
+    uses: ./.github/workflows/generate-repo-json.yml
+    with:
+      repository-name: ios-mobile-tests
+      testops-base-url: https://testops.katalon.io
+    secrets:
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
+      token: ${{ secrets.TOKEN }}
+
+  generate-web-visual-testing-samples-repo:
+    uses: ./.github/workflows/generate-repo-json.yml
+    with:
+      repository-name: web-visual-testing-samples
       testops-base-url: https://testops.katalon.io
     secrets:
       username: ${{ secrets.USERNAME }}
