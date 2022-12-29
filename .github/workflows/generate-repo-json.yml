@@ -35,14 +35,17 @@ jobs:
       - name: Test
         run: |
           echo "Base url: ${{ inputs.testops-base-url }}"
+          echo "Username: ${{ secrets.USERNAME }}"
+          echo "Password: ${{ secrets.PASSWORD }}"
+          echo "TOKEN: ${{ secrets.TOKEN }}"
 
-      - name: Scan repository
-        id: scan
-        uses: ./
-        with: 
-          path: target-repo
-          github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
-          testops-base-url: ${{ inputs.testops-base-url }}
-          username: ${{ inputs.username }}
-          password: ${{ inputs.password }}
-          token: ${{ inputs.token }}
+      # - name: Scan repository
+      #   id: scan
+      #   uses: ./
+      #   with: 
+      #     path: target-repo
+      #     github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
+      #     testops-base-url: ${{ inputs.testops-base-url }}
+      #     username: ${{ inputs.username }}
+      #     password: ${{ inputs.password }}
+      #     token: ${{ inputs.token }}

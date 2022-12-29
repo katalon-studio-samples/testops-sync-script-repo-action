@@ -24,10 +24,10 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
-      testops-base-url: ${{ env.TESTOPS_BASE_URL }}
-      username: ${{ env.USERNAME }}
-      password: ${{ env.PASSWORD }}
-      token: ${{ env.TOKEN }}
+      testops-base-url: https://testops.staging.katalon.com
+      # username: ${{ env.USERNAME }}
+      # password: ${{ env.PASSWORD }}
+      # token: ${{ env.TOKEN }}
   
   # generate-health-care-repo:
   #   uses: ./.github/workflows/generate-repo-json.yml
