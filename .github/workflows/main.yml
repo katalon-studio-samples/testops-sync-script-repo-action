@@ -11,19 +11,22 @@ env:
 
 jobs:
   generate-web-services-repo:
-    uses: ./.github/workflows/generate-repo-json.yml
-    with:
-      repository-name: web-service-tests
-      testops-base-url: $TESTOPS_BASE_URL
-      username: $USERNAME
-      password: $PASSWORD
-      token: $TOKEN
+    runs-on: ubuntu-latest
+    name: Generate repository json
+    steps:
+      uses: ./.github/workflows/generate-repo-json.yml
+      with:
+        repository-name: web-service-tests
+        testops-base-url: ${{env.TESTOPS_BASE_URL}}
+        username: ${{env.USERNAME}}
+        password: ${{env.PASSWORD}}
+        token: ${{env.TOKEN}}
   
-  generate-health-care-repo:
-    uses: ./.github/workflows/generate-repo-json.yml
-    with:
-      repository-name: healthcare-tests
-      testops-base-url: $TESTOPS_BASE_URL
-      username: $USERNAME
-      password: $PASSWORD
-      token: $TOKEN
+  # generate-health-care-repo:
+  #   uses: ./.github/workflows/generate-repo-json.yml
+  #   with:
+  #     repository-name: healthcare-tests
+  #     testops-base-url: $TESTOPS_BASE_URL
+  #     username: $USERNAME
+  #     password: $PASSWORD
+  #     token: $TOKEN

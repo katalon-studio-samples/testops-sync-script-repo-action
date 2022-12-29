@@ -16,17 +16,15 @@ jobs:
     with:
       repository-name: web-service-tests
       testops-base-url: https://testops.staging.katalon.com
-    # secrets:
-    #   username: ${{ secrets.USERNAME }}
-    #   password: ${{ secrets.PASSWORD }}
-    #   token: ${{ secrets.TOKEN }}
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
+      token: ${{ secrets.TOKEN }}
   
   generate-health-care-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: healthcare-tests
       testops-base-url: https://testops.staging.katalon.com
-    # secrets:
-    #   username: ${{ secrets.USERNAME }}
-    #   password: ${{ secrets.PASSWORD }}
-    #   token: ${{ secrets.TOKEN }}
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
+      token: ${{ secrets.TOKEN }}

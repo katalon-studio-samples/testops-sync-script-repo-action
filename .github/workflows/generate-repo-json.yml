@@ -8,15 +8,15 @@ on:
       testops-base-url:
         required: true
         type: string
-      # username:
-      #   required: true
-      #   type: string
-      # password:
-      #   required: true
-      #   type: string
-      # token:
-      #   required: true
-      #   type: string
+      username:
+        required: true
+        type: string
+      password:
+        required: true
+        type: string
+      token:
+        required: true
+        type: string
 
 jobs:
   generate-a-repository-json:
@@ -40,6 +40,6 @@ jobs:
           path: target-repo
           github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
           testops-base-url: ${{ inputs.testops-base-url }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          token: ${{ secrets.TOKEN }}
+          username: ${{ inputs.username }}
+          password: ${{ inputs.password }}
+          token: ${{ inputs.token }}
