@@ -1,11 +1,15 @@
-# # on: [repository_dispatch]
-# on:
-#   push:
-#     branch:
-#       - TES-1829
+# on: [repository_dispatch]
+on:
+  push:
+    branch:
+      - TES-1829
 
-# jobs:
-#   sync-sample-qa:
-#     uses: ./.github/workflows/main.yml
-#     with:
-#       testops-base-url: https://testops.qa.katalon.com
+jobs:
+  sync-sample-staging:
+    uses: ./.github/workflows/generate-upload-metadatas.yml
+    with:
+      testops-base-url: https://testops.qa.katalon.com
+    secrets:
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
+      token: ${{ secrets.TOKEN }}
