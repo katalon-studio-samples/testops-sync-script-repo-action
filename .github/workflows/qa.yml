@@ -1,5 +1,10 @@
 on: 
   workflow_dispatch:
+    inputs:
+      url:
+        description: 'TESTOPS URL'
+        required: true
+        default: 'https://testops.katalon.io'
   push:
     branches:
       - TES-1829
