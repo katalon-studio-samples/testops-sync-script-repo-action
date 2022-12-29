@@ -22311,7 +22311,7 @@ const TEST_CASE_PATTERN = "Test Cases/**/*.tc";
 const EXECUTION_PROFILE_PATTERN = "Profiles/**/*.glbl"
 
 const parseOption = {
-  isArray: (name, jpath, isLeafNode, isAttribute) => name === 'testCaseLink' || name === 'TestSuiteRunConfiguration'
+  isArray: (name) => name === 'testCaseLink' || name === 'TestSuiteRunConfiguration'
 }
 const parser = new XMLParser(parseOption)
 
@@ -22375,7 +22375,6 @@ const main = async () => {
 
   await Services.getS3PresignedUrl(GITHUB_URL).then((response) => {
     const presignedUrl = response.data;
-    core.info(`Found presignedUrl ${presignedUrl}`);
     Services.putS3PresignedUrl(presignedUrl, jsonFile);
   })
 }
