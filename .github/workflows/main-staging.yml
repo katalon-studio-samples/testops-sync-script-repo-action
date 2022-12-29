@@ -16,6 +16,7 @@ jobs:
     with:
       repository-name: web-service-tests
       testops-base-url: https://testops.staging.katalon.com
+    secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
       token: ${{ secrets.TOKEN }}
@@ -25,6 +26,7 @@ jobs:
     with:
       repository-name: healthcare-tests
       testops-base-url: https://testops.staging.katalon.com
+    secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
       token: ${{ secrets.TOKEN }}
