@@ -5,18 +5,18 @@ on:
       repository-name:
         required: true
         type: string
-      testops-base-url:
-        required: true
-        type: string
-      username:
-        required: true
-        type: string
-      password:
-        required: true
-        type: string
-      token:
-        required: true
-        type: string
+      # testops-base-url:
+      #   required: true
+      #   type: string
+      # username:
+      #   required: true
+      #   type: string
+      # password:
+      #   required: true
+      #   type: string
+      # token:
+      #   required: true
+      #   type: string
 
 jobs:
   generate-a-repository-json:
@@ -39,7 +39,7 @@ jobs:
         with: 
           path: target-repo
           github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
-          testops-base-url: ${{ inputs.testops-base-url }}
-          username: ${{ inputs.username }}
-          password: ${{ inputs.password }}
-          token: ${{ inputs.token }}
+          testops-base-url: ${{ env.testops-base-url }}
+          username: ${{ env.username }}
+          password: ${{ env.password }}
+          token: ${{ env.token }}
