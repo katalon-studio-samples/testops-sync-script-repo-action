@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - master
-      # - TES-1829
+      - TES-1829
 
 env:
   TESTOPS_BASE_URL: https://testops.staging.katalon.com
@@ -12,20 +12,13 @@ env:
 
 jobs:
   generate-web-services-repo:
-    runs-on: ubuntu-latest
-    name: Generate repository json
-    steps:
-      - name: Checkout main
-        uses: actions/checkout@v3
-
-      - name: abc
-        uses: ./.github/workflows/generate-repo-json.yml
-        with:
-          repository-name: web-service-tests
-          testops-base-url: ${{env.TESTOPS_BASE_URL}}
-          username: ${{env.USERNAME}}
-          password: ${{env.PASSWORD}}
-          token: ${{env.TOKEN}}
+    uses: ./.github/workflows/generate-repo-json.yml
+    with:
+      repository-name: web-service-tests
+      testops-base-url: ${{env.TESTOPS_BASE_URL}}
+      username: ${{env.USERNAME}}
+      password: ${{env.PASSWORD}}
+      token: ${{env.TOKEN}}
   
   # generate-health-care-repo:
   #   uses: ./.github/workflows/generate-repo-json.yml
