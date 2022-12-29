@@ -11,7 +11,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
-      testops-base-url: ${{ testops-base-url }}
+      testops-base-url: ${{ inputs.testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -21,7 +21,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
-      testops-base-url: ${{ testops-base-url }}
+      testops-base-url: ${{ inputs.testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -31,7 +31,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: shopping-cart-tests
-      testops-base-url: ${{ testops-base-url }}
+      testops-base-url: ${{ inputs.testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -41,7 +41,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: healthcare-tests
-      testops-base-url: ${{ testops-base-url }}
+      testops-base-url: ${{ inputs.testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -51,7 +51,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: android-mobile-tests
-      testops-base-url: ${{ testops-base-url }}
+      testops-base-url: ${{ inputs.testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -61,7 +61,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: ios-mobile-tests
-      testops-base-url: ${{ testops-base-url }}
+      testops-base-url: ${{ inputs.testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -71,7 +71,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-visual-testing-samples
-      testops-base-url: ${{ testops-base-url }}
+      testops-base-url: ${{ inputs.testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
