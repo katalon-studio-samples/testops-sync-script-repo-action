@@ -1,8 +1,6 @@
-# on: [repository_dispatch]
-on:
-  push:
-    branch:
-      - TES-1829
+on: 
+  workflow_dispatch: 
+  repository_dispatch:
 
 jobs:
   sync-sample-staging:
