@@ -18,14 +18,15 @@ on:
       #   required: true
       #   type: string
 
+env:
+  USERNAME: ${{ secrets.USERNAME }}
+  PASSWORD: ${{ secrets.PASSWORD }}
+  TOKEN: ${{ secrets.TOKEN }}
+
 jobs:
   generate-a-repository-json:
     runs-on: ubuntu-latest
     name: Generate repository json
-    env:
-      USERNAME: ${{ secrets.USERNAME }}
-      PASSWORD: ${{ secrets.PASSWORD }}
-      TOKEN: ${{ secrets.TOKEN }}
     steps:
       - name: Checkout main
         uses: actions/checkout@v3
