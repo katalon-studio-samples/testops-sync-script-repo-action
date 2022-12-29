@@ -2,7 +2,6 @@ on:
   push:
     branches:
       - master
-      - TES-1829
 
 jobs:
   generate-web-services-repo:
