@@ -11,10 +11,13 @@ on:
     secrets:
       username:
         required: true
+        type: string
       password:
         required: true
+        type: string
       token:
         required: true
+        type: string
 
 jobs:
   generate-a-repository-json:
@@ -30,20 +33,14 @@ jobs:
           repository: katalon-studio-samples/${{ inputs.repository-name }}
           ref: master
           path: target-repo
-      - name: Test
-        run: |
-          echo "Base url: ${{ inputs.testops-base-url }}"
-          echo "Username: ${{ secrets.USERNAME }}"
-          echo "Password: ${{ secrets.PASSWORD }}"
-          echo "Token: ${{ secrets.TOKEN }}"
 
-      # - name: Scan repository
-      #   id: scan
-      #   uses: ./
-      #   with: 
-      #     path: target-repo
-      #     github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
-      #     testops-base-url: ${{ inputs.testops-base-url }}
-      #     username: ${{ inputs.username }}
-      #     password: ${{ inputs.password }}
-      #     token: ${{ inputs.token }}
+      - name: Scan repository
+        id: scan
+        uses: ./
+        with: 
+          path: target-repo
+          github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
+          testops-base-url: ${{ inputs.testops-base-url }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          token: ${{ secrets.TOKEN }}
