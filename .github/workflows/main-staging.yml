@@ -4,17 +4,20 @@ on:
       - master
       - TES-1829
 
-# env:
-#   TESTOPS_BASE_URL: https://testops.staging.katalon.com
-#   USERNAME: ${{ secrets.USERNAME }}
-#   PASSWORD: ${{ secrets.PASSWORD }}
-#   TOKEN: ${{ secrets.TOKEN }}
+env:
+  TESTOPS_BASE_URL: https://testops.staging.katalon.com
+  USERNAME: ${{ secrets.USERNAME }}
+  PASSWORD: ${{ secrets.PASSWORD }}
+  TOKEN: ${{ secrets.TOKEN }}
 
 jobs:
   generate-web-services-repo:
     runs-on: ubuntu-latest
     name: Generate repository json
     steps:
+      - name: Checkout main
+        uses: actions/checkout@v3
+
       - name: abc
         uses: ./.github/workflows/generate-repo-json.yml
         with:
