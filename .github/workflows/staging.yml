@@ -9,3 +9,7 @@ jobs:
     uses: ./.github/workflows/generate-upload-metadatas.yml
     with:
       testops-base-url: https://testops.staging.katalon.com
+    secrets:
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
+      token: ${{ secrets.TOKEN }}

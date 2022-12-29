@@ -5,6 +5,13 @@ on:
       testops-base-url:
         required: true
         type: string
+    secrets:
+      username:
+        required: true
+      password:
+        required: true
+      token:
+        required: true
 
 jobs:
   generate-web-services-repo:
@@ -13,9 +20,9 @@ jobs:
       repository-name: web-service-tests
       testops-base-url: ${{ inputs.testops-base-url }}
     secrets:
-      username: ${{ secrets.USERNAME }}
-      password: ${{ secrets.PASSWORD }}
-      token: ${{ secrets.TOKEN }}
+      username: ${{ secrets.username }}
+      password: ${{ secrets.password }}
+      token: ${{ secrets.token }}
   
   # generate-calculator-bdd-tests-repo:
   #   uses: ./.github/workflows/generate-repo-metadata.yml

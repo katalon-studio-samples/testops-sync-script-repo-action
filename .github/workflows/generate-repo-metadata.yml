@@ -29,6 +29,7 @@ jobs:
           AAA: ${{ inputs.testops-base-url }}
         run: |
           echo $AAA
+          echo ${{ secrets.username }}
 
       - name: Checkout web-service-tests
         uses: actions/checkout@v3
@@ -44,6 +45,6 @@ jobs:
           path: target-repo
           github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
           testops-base-url: ${{ inputs.testops-base-url }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          token: ${{ secrets.TOKEN }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          token: ${{ secrets.token }}
