@@ -1,11 +1,11 @@
-# on: [repository_dispatch]
-on:
-  push:
-    branch:
-      - TES-1829
+# # on: [repository_dispatch]
+# on:
+#   push:
+#     branch:
+#       - TES-1829
 
-jobs:
-  sync-sample-production:
-    uses: ./.github/workflows/main.yml
-    with:
-      testops-base-url: https://testops.katalon.io
+# jobs:
+#   sync-sample-production:
+#     uses: ./.github/workflows/main.yml
+#     with:
+#       testops-base-url: https://testops.katalon.io
