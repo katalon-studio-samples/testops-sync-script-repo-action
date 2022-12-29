@@ -6,6 +6,6 @@ on:
 
 jobs:
   sync-sample-staging:
-    uses: ./.github/workflows/main.yml
+    uses: ./.github/workflows/generate-upload-metadatas.yml
     with:
       testops-base-url: https://testops.staging.katalon.com

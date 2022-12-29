@@ -1,4 +1,4 @@
-name: Generate repository.json
+name: Generate repository's metadata
 on:
   workflow_call:
     inputs:
