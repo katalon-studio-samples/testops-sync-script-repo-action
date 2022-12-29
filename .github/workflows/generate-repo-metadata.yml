@@ -1,0 +1,43 @@
+name: Generate repository's metadata
+on:
+  workflow_call:
+    inputs:
+      repository-name:
+        required: true
+        type: string
+      testops-base-url:
+        required: true
+        type: string
+    secrets:
+      username:
+        required: true
+      password:
+        required: true
+      token:
+        required: true
+
+jobs:
+  generate-a-repository-json:
+    runs-on: ubuntu-latest
+    name: Generate repository json
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v3
+
+      - name: Checkout web-service-tests
+        uses: actions/checkout@v3
+        with: 
+          repository: katalon-studio-samples/${{ inputs.repository-name }}
+          ref: master
+          path: target-repo
+
+      - name: Scan repository
+        id: scan
+        uses: ./
+        with: 
+          path: target-repo
+          github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
+          testops-base-url: ${{ inputs.testops-base-url }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          token: ${{ secrets.token }}
