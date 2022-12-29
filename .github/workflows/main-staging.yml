@@ -4,15 +4,27 @@ on:
       - master
       - TES-1829
 
+# env:
+#   TESTOPS_BASE_URL: https://testops.staging.katalon.com
+#   USERNAME: ${{ secrets.username }}
+#   PASSWORD: ${{ secrets.password }}
+#   TOKEN: ${{ secrets.token }}
+
 jobs:
   generate-web-services-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
       testops-base-url: https://testops.staging.katalon.com
+      username: ${{ secrets.username }}
+      password: ${{ secrets.password }}
+      token: ${{ secrets.token }}
   
   generate-health-care-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: healthcare-tests
       testops-base-url: https://testops.staging.katalon.com
+      username: ${{ secrets.username }}
+      password: ${{ secrets.password }}
+      token: ${{ secrets.token }}
