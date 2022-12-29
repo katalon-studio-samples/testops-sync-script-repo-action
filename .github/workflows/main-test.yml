@@ -15,10 +15,10 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
-      testops-base-url: ${{env.TESTOPS_BASE_URL}}
-      username: ${{env.USERNAME}}
-      password: ${{env.PASSWORD}}
-      token: ${{env.TOKEN}}
+      testops-base-url: $TESTOPS_BASE_URL
+      username: $USERNAME
+      password: $PASSWORD
+      token: $TOKEN
   
   # generate-health-care-repo:
   #   uses: ./.github/workflows/generate-repo-json.yml
