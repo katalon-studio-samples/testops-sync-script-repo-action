@@ -1,3 +1,4 @@
+name: Staging
 on: workflow_dispatch
 
 jobs:
