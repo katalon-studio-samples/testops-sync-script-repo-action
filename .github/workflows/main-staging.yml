@@ -15,7 +15,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
-      testops-base-url: https://testops.staging.katalon.com
+      testops-base-url: $TESTOPS_BASE_URL
       username: $USERNAME
       password: $PASSWORD
       token: $TOKEN
@@ -24,7 +24,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: healthcare-tests
-      testops-base-url: https://testops.staging.katalon.com
+      testops-base-url: $TESTOPS_BASE_URL
       username: $USERNAME
       password: $PASSWORD
       token: $TOKEN
