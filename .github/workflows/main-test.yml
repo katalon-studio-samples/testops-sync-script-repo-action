@@ -16,8 +16,8 @@ jobs:
     steps:
       - name: Test
         run: |
-          echo "TESTOPS_BASE_URL: ${{ github.env.TESTOPS_BASE_URL }}"
-          echo "USERNAME: ${{ github.env.USERNAME }}"
+          echo "TESTOPS_BASE_URL: ${{ env.TESTOPS_BASE_URL }}"
+          echo "USERNAME: ${{ env.USERNAME }}"
           echo "PASSWORD: $PASSWORD"
           echo "TOKEN: $TOKEN"
   generate-web-services-repo:
