@@ -76,8 +76,10 @@ const main = async () => {
 
   const GITHUB_URL = core.getInput('github-url');
 
+  core.info('Getting signed URL...');
   await Services.getS3PresignedUrl(GITHUB_URL).then((response) => {
     const presignedUrl = response.data;
+    core.info('Start uploading...');
     Services.putS3PresignedUrl(presignedUrl, jsonFile);
   })
 }
