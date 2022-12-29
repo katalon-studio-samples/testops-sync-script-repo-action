@@ -29,9 +29,10 @@ jobs:
     with:
       repository-name: web-service-tests
       testops-base-url: https://testops.staging.katalon.com
-      # username: ${{ env.USERNAME }}
-      # password: ${{ env.PASSWORD }}
-      # token: ${{ env.TOKEN }}
+    secrets:
+      username: ${{ env.USERNAME }}
+      password: ${{ env.PASSWORD }}
+      token: ${{ env.TOKEN }}
   
   # generate-health-care-repo:
   #   uses: ./.github/workflows/generate-repo-json.yml
