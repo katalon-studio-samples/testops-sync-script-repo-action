@@ -4,18 +4,15 @@ on:
       - master
       - TES-1829
 
-env:
-  TESTOPS_BASE_URL: https://testops.staging.katalon.com
-
 jobs:
   generate-web-services-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
-      testops-base-url: $TESTOPS_BASE_URL
+      testops-base-url: https://testops.staging.katalon.com
   
   generate-health-care-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: healthcare-tests
-      testops-base-url: $TESTOPS_BASE_URL
+      testops-base-url: https://testops.staging.katalon.com
