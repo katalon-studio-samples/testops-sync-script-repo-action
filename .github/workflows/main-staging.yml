@@ -12,19 +12,23 @@ on:
 
 jobs:
   generate-web-services-repo:
-    uses: ./.github/workflows/generate-repo-json.yml
-    with:
-      repository-name: web-service-tests
-      testops-base-url: https://testops.staging.katalon.com
-      username: ${{ secrets.USERNAME }}
-      password: ${{ secrets.PASSWORD }}
-      token: ${{ secrets.TOKEN }}
+    runs-on: ubuntu-latest
+    name: Generate repository json
+    steps:
+      - name: abc
+        uses: ./.github/workflows/generate-repo-json.yml
+        with:
+          repository-name: web-service-tests
+          testops-base-url: ${{env.TESTOPS_BASE_URL}}
+          username: ${{env.USERNAME}}
+          password: ${{env.PASSWORD}}
+          token: ${{env.TOKEN}}
   
-  generate-health-care-repo:
-    uses: ./.github/workflows/generate-repo-json.yml
-    with:
-      repository-name: healthcare-tests
-      testops-base-url: https://testops.staging.katalon.com
-      username: ${{ secrets.USERNAME }}
-      password: ${{ secrets.PASSWORD }}
-      token: ${{ secrets.TOKEN }}
+  # generate-health-care-repo:
+  #   uses: ./.github/workflows/generate-repo-json.yml
+  #   with:
+  #     repository-name: healthcare-tests
+  #     testops-base-url: https://testops.staging.katalon.com
+  #     username: ${{ secrets.USERNAME }}
+  #     password: ${{ secrets.PASSWORD }}
+  #     token: ${{ secrets.TOKEN }}
