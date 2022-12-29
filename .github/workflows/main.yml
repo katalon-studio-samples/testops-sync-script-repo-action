@@ -1,11 +1,17 @@
-on: [repository_dispatch]
+name: Main workflow
+on:
+  workflow_call:
+    inputs:
+      testops-base-url:
+        required: true
+        type: string
 
 jobs:
   generate-web-services-repo:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
-      testops-base-url: https://testops.katalon.io
+      testops-base-url: ${{ testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -15,7 +21,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-service-tests
-      testops-base-url: https://testops.katalon.io
+      testops-base-url: ${{ testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -25,7 +31,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: shopping-cart-tests
-      testops-base-url: https://testops.katalon.io
+      testops-base-url: ${{ testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -35,7 +41,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: healthcare-tests
-      testops-base-url: https://testops.katalon.io
+      testops-base-url: ${{ testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -45,7 +51,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: android-mobile-tests
-      testops-base-url: https://testops.katalon.io
+      testops-base-url: ${{ testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -55,7 +61,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: ios-mobile-tests
-      testops-base-url: https://testops.katalon.io
+      testops-base-url: ${{ testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}
@@ -65,7 +71,7 @@ jobs:
     uses: ./.github/workflows/generate-repo-json.yml
     with:
       repository-name: web-visual-testing-samples
-      testops-base-url: https://testops.katalon.io
+      testops-base-url: ${{ testops-base-url }}
     secrets:
       username: ${{ secrets.USERNAME }}
       password: ${{ secrets.PASSWORD }}

@@ -1,0 +1,11 @@
+# on: [repository_dispatch]
+on:
+  push:
+    branch:
+      - TES-1829
+
+jobs:
+  sync-sample-staging:
+    uses: ./.github/workflows/main.yml
+    with:
+      testops-base-url: https://testops.staging.katalon.com
