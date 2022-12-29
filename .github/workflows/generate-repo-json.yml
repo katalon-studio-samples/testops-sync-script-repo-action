@@ -39,7 +39,7 @@ jobs:
         with: 
           path: target-repo
           github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
-          testops-base-url: ${{ input.testops-base-url }}
+          testops-base-url: ${{ inputs.testops-base-url }}
           username: ${{ secrets.username }}
           password: ${{ secrets.password }}
           token: ${{ secrets.token }}

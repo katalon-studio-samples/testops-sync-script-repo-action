@@ -4,11 +4,11 @@ on:
       - master
       - TES-1829
 
-env:
-  TESTOPS_BASE_URL: https://testops.staging.katalon.com
-  USERNAME: ${{ secrets.USERNAME }}
-  PASSWORD: ${{ secrets.PASSWORD }}
-  TOKEN: ${{ secrets.TOKEN }}
+# env:
+#   TESTOPS_BASE_URL: https://testops.staging.katalon.com
+#   USERNAME: ${{ secrets.USERNAME }}
+#   PASSWORD: ${{ secrets.PASSWORD }}
+#   TOKEN: ${{ secrets.TOKEN }}
 
 jobs:
   generate-web-services-repo:
