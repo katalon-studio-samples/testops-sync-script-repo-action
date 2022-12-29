@@ -5,6 +5,21 @@ inputs:
     description: 'Path to Katalon Studio repository'
     required: false
     default: './'
+  github-url:
+    description: 'Github url to get presigned URL'
+    require: true
+  testops-base-url:
+    description: 'TestOps base URL'
+    require: true
+  username:
+    description: 'Username to auth Basic Auth'
+    required: true
+  password:
+    description: 'Password to auth Basic Auth'
+    required: true
+  token:
+    description: 'Token to get s3 presigned URL'
+    required: true
 outputs:
   repository: # id of output
     description: 'The JSON contains the repository Test Suite Collections, Test Suites, Test Cases and Profiles'

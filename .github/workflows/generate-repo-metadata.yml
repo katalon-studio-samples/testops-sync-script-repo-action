@@ -1,10 +1,21 @@
-name: Generate repository.json
+name: Generate repository's metadata
 on:
   workflow_call:
     inputs:
       repository-name:
         required: true
         type: string
+      testops-base-url:
+        required: true
+        type: string
+    secrets:
+      username:
+        required: true
+      password:
+        required: true
+      token:
+        required: true
+
 jobs:
   generate-a-repository-json:
     runs-on: ubuntu-latest
@@ -25,9 +36,8 @@ jobs:
         uses: ./
         with: 
           path: target-repo
-      
-      - name: Upload repository.json artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: repository-${{ inputs.repository-name }}
-          path: repository.json
+          github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
+          testops-base-url: ${{ inputs.testops-base-url }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          token: ${{ secrets.token }}

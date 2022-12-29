@@ -1,0 +1,11 @@
+on: workflow_dispatch
+
+jobs:
+  sync-sample-staging:
+    uses: ./.github/workflows/generate-upload-metadatas.yml
+    with:
+      testops-base-url: https://testops.katalon.io
+    secrets:
+      username: ${{ secrets.USERNAME }}
+      password: ${{ secrets.PASSWORD }}
+      token: ${{ secrets.TOKEN }}

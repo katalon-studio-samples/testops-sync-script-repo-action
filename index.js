@@ -4,6 +4,7 @@ const { promises: fs } = require('fs');
 const glob = require('glob')
 const path = require('path')
 const { XMLParser } = require('fast-xml-parser')
+const Services = require('./utils/Services.js');
 
 const ROOT_FOLDER = core.getInput('path');
 
@@ -13,7 +14,7 @@ const TEST_CASE_PATTERN = "Test Cases/**/*.tc";
 const EXECUTION_PROFILE_PATTERN = "Profiles/**/*.glbl"
 
 const parseOption = {
-  isArray: (name, jpath, isLeafNode, isAttribute) => name === 'testCaseLink' || name === 'TestSuiteRunConfiguration'
+  isArray: (name) => name === 'testCaseLink' || name === 'TestSuiteRunConfiguration'
 }
 const parser = new XMLParser(parseOption)
 
@@ -67,10 +68,20 @@ const main = async () => {
     testSuiteCollections, 
     testCases
   }
+
   core.setOutput('repository', result);
 
-  await fs.writeFile('repository.json', JSON.stringify(result));
-  //TODO: get signed URL from TestOps and upload result to S3
+  const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result))
+  .then(() => fs.readFile('repository.json', 'utf-8'));
+
+  const GITHUB_URL = core.getInput('github-url');
+
+  core.info('Getting signed URL...');
+  await Services.getS3PresignedUrl(GITHUB_URL).then((response) => {
+    const presignedUrl = response.data;
+    core.info('Start uploading...');
+    Services.putS3PresignedUrl(presignedUrl, jsonFile);
+  })
 }
 
 main().catch(err => core.setFailed(err.message))
