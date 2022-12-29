@@ -11,13 +11,10 @@ on:
     secrets:
       username:
         required: true
-        type: string
       password:
         required: true
-        type: string
       token:
         required: true
-        type: string
 
 jobs:
   generate-a-repository-json:
