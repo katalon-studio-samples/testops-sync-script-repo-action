@@ -5,9 +5,9 @@ on:
       repository-name:
         required: true
         type: string
-      # testops-base-url:
-      #   required: true
-      #   type: string
+      testops-base-url:
+        required: true
+        type: string
       # username:
       #   required: true
       #   type: string
@@ -39,7 +39,7 @@ jobs:
         with: 
           path: target-repo
           github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
-          testops-base-url: ${{ env.testops-base-url }}
-          username: ${{ env.username }}
-          password: ${{ env.password }}
-          token: ${{ env.token }}
+          testops-base-url: ${{ input.testops-base-url }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          token: ${{ secrets.token }}
