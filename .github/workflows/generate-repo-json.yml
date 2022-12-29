@@ -33,15 +33,15 @@ jobs:
           ref: master
           path: target-repo
       - name: Test
-        env:
-          USERNAME: ${{secrets.USERNAME}}
-          PASSWORD: ${{secrets.PASSWORD}}
-          TOKEN: ${{secrets.TOKEN}}
         run: |
           echo "Base url: ${{ inputs.testops-base-url }}"
           echo "Username: $USERNAME"
           echo "Password: $PASSWORD"
           echo "Token: $TOKEN"
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          TOKEN: ${{ secrets.TOKEN }}
 
       # - name: Scan repository
       #   id: scan
