@@ -61,7 +61,7 @@ const main = async () => {
   core.info(`Found ${profiles.length} profiles.`);
 
   const result = {
-    repositoryUrl: github.context.payload.repository.url,
+    repositoryUrl: github.context.payload.repository.html_url,
     branch: '',
     testSuites, 
     profiles, 
