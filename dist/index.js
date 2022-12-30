@@ -22366,6 +22366,8 @@ const main = async () => {
     testCases
   }
 
+  core.info(JSON.stringify(github.context.payload))
+
   core.setOutput('repository', result);
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result))
