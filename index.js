@@ -74,7 +74,7 @@ const main = async () => {
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result))
   .then(() => fs.readFile('repository.json', 'utf-8'));
 
-  core.info('Getting signed URL...');
+  core.info('Getting signed URL...' + result.repositoryUrl);
   await Services.getS3PresignedUrl(result.repositoryUrl).then((response) => {
     const presignedUrl = response.data;
     core.info('Start uploading...');
