@@ -18216,9 +18216,7 @@ const Services = {
     },
 
     putS3PresignedUrl: (presignedS3Url, jsonFile) => {
-        return axios.put(presignedS3Url, {
-            file: jsonFile,
-        }, {
+        return axios.put(presignedS3Url, jsonFile, {
             headers: {
                 'Content-Type': 'application/json'
             }
