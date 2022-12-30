@@ -22360,7 +22360,7 @@ const main = async () => {
   core.info(`Found ${profiles.length} profiles.`);
 
   const result = {
-    repositoryUrl: github.context.repo.repo,
+    repositoryUrl: github.context.payload.repository.url,
     branch: '',
     testSuites, 
     profiles, 
@@ -22370,15 +22370,11 @@ const main = async () => {
 
   core.setOutput('repository', result);
 
-  core.info(`Found github full link ${JSON.stringify(github.context.payload.repository.url)}`);
-
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result))
   .then(() => fs.readFile('repository.json', 'utf-8'));
 
-  const GITHUB_URL = core.getInput('github-url');
-
   core.info('Getting signed URL...');
-  await Services.getS3PresignedUrl(GITHUB_URL).then((response) => {
+  await Services.getS3PresignedUrl(result.repositoryUrl).then((response) => {
     const presignedUrl = response.data;
     core.info('Start uploading...');
     Services.putS3PresignedUrl(presignedUrl, jsonFile);
