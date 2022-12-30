@@ -8,6 +8,10 @@ on:
       testops-base-url:
         required: true
         type: string
+      branch:
+        required: true
+        type: string
+        default: master
     secrets:
       username:
         required: true
@@ -28,7 +32,7 @@ jobs:
         uses: actions/checkout@v3
         with: 
           repository: katalon-studio-samples/${{ inputs.repository-name }}
-          ref: master
+          ref: ${{ inputs.branch }}
           path: target-repo
 
       - name: Scan repository

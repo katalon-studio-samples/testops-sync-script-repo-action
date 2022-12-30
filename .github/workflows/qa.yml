@@ -1,12 +1,12 @@
-name: QA
-on: workflow_dispatch
+# name: QA
+# on: workflow_dispatch
 
-jobs:
-  sync-sample-staging:
-    uses: ./.github/workflows/generate-upload-metadatas.yml
-    with:
-      testops-base-url: https://testops.qa.katalon.com
-    secrets:
-      username: ${{ secrets.USERNAME }}
-      password: ${{ secrets.PASSWORD }}
-      token: ${{ secrets.TOKEN }}
+# jobs:
+#   sync-sample-staging:
+#     uses: ./.github/workflows/generate-upload-metadatas.yml
+#     with:
+#       testops-base-url: https://testops.qa.katalon.com
+#     secrets:
+#       username: ${{ secrets.USERNAME }}
+#       password: ${{ secrets.PASSWORD }}
+#       token: ${{ secrets.TOKEN }}
