@@ -23,13 +23,6 @@ jobs:
         with: 
           path: target-repo
 
-      # - name: Checkout web-service-tests
-      #   uses: actions/checkout@v3
-      #   with: 
-      #     repository: katalon-studio-samples/testops-sync-script-repo-action
-      #     ref: {{ inputs.branch }}
-      #     path: target-repo
-
       - name: Scan repository
         uses: katalon-studio-samples/testops-sync-script-repo-action@TES-1829
         with: 
