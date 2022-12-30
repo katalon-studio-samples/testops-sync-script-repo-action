@@ -1,5 +1,8 @@
 name: Staging
-on: workflow_dispatch
+on:
+  push:
+    branch:
+      - test
 
 jobs:
   sync-sample-staging:
