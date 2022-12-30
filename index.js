@@ -69,14 +69,12 @@ const main = async () => {
     testCases
   }
 
-  core.info(JSON.stringify(github.context.payload))
-
   core.setOutput('repository', result);
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result))
   .then(() => fs.readFile('repository.json', 'utf-8'));
 
-  core.info('Getting signed URL...' + result.repositoryUrl);
+  core.info('Getting signed URL...');
   await Services.getS3PresignedUrl(result.repositoryUrl).then((response) => {
     const presignedUrl = response.data;
     core.info('Start uploading...');
