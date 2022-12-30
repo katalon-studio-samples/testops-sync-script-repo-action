@@ -1,11 +1,6 @@
 name: Generate repository's metadata
 on:
   workflow_call:
-    inputs:
-      branch:
-        required: true
-        type: string
-        default: master
     secrets:
       username:
         required: true
@@ -24,7 +19,7 @@ jobs:
           path: target-repo
 
       - name: Scan repository
-        uses: katalon-studio-samples/testops-sync-script-repo-action@TES-1829
+        uses: katalon-studio-samples/testops-sync-script-repo-action@main
         with: 
           path: target-repo
           testops-base-url: ${{ inputs.testops-base-url }}
