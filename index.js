@@ -71,7 +71,7 @@ const main = async () => {
 
   core.setOutput('repository', result);
 
-  core.info(`Found github full link ${JSON.stringify(github.context.payload.url)}`);
+  core.info(`Found github full link ${JSON.stringify(github.context)}`);
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result))
   .then(() => fs.readFile('repository.json', 'utf-8'));
