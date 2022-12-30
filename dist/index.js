@@ -22370,7 +22370,7 @@ const main = async () => {
 
   core.setOutput('repository', result);
 
-  core.info(`Found github full link ${github.context.repo.repo}`);
+  core.info(`Found github full link ${JSON.stringify(github)}`);
 
   const jsonFile = await fs.writeFile('repository.json', JSON.stringify(result))
   .then(() => fs.readFile('repository.json', 'utf-8'));
