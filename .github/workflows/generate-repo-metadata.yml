@@ -32,13 +32,12 @@ jobs:
       # - name: Checkout web-service-tests
       #   uses: actions/checkout@v3
       #   with: 
-      #     repository: katalon-studio-samples/${{ inputs.repository-name }}
+      #     repository: katalon-studio-samples/testops-sync-script-repo-action
       #     ref: {{ inputs.branch }}
       #     path: target-repo
 
       - name: Scan repository
-        id: scan
-        uses: ./
+        uses: katalon-studio-samples/testops-sync-script-repo-action@TES-1829
         with: 
           path: target-repo
           github-url: https://github.com/katalon-studio-samples/${{ inputs.repository-name }}
